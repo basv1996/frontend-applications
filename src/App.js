@@ -1,28 +1,20 @@
-import logo from './logo.svg'
+import { BeerProvider } from './providers/beerProvider'
+// import Name from './components/name'
 import './App.css'
 import Welcome from './components/welcome'
+// import Svg from './components/svg'
+import BarChart from './components/BarChart'
+import {dataBeer} from './data'
 
 
 function App() {
   return (
-    <div className="App">
-    
-      <header className="App-header">
+    <BeerProvider>
       <Welcome />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BarChart data={dataBeer} />
+      {/* <Name />     */}
+      {/* <Svg /> */}
+    </BeerProvider>
   );
 }
 
