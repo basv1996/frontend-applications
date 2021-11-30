@@ -1,12 +1,18 @@
 import useD3 from "../hooks/useD3";
-//import { dataBeer } from "../data";
+import { dataBeer } from "../data";
 import React from "react";
 import * as d3 from "d3";
 import { scaleLinear } from "d3";
 
 function BarChart({ data }) {
+    //als je een hook gebruikt moet deze altijd top-level worden aangemaakt 
+    //hooks kunnen niet in if-statement/functies/loops of genest waar dan ook
+
+    // const [var1, setVar1] = useState()
+    // de eerste value in de array is de current state en de 2e value is de functie voor de geupdate state
   const ref = useD3(
     (svg) => {
+       
         const margin = {top: 40, bottom: 140, left: 150, right: 20};
         const width = 800 - margin.left - margin.right;
         const height = 600 - margin.top - margin.bottom;
@@ -22,10 +28,12 @@ function BarChart({ data }) {
         .domain([0, d3.max(data, (d) => d.abv)])
         .rangeRound([height - margin.bottom, margin.top]);
 
-        const colorScale = scaleLinear()
-        .domain([4, 8, 12])
-        .range(["green", "orange", "red"])
-        .clamp(true);
+      
+        const colorValue = d => d.abv
+        
+        //const colorScale1 = d3.scaleSequential(d3.interpolateRainbow).domain([0,10])
+        //const colorScale1 = d3.scaleSequential(d3.interpolateYlOrRd).domain([0,10])
+        const colorScale1 = d3.scaleSequential(d3.interpolateYlOrRd).domain([0, d3.max(data, colorValue)])
 
       const xAxis = (g) =>
         g.attr("transform", `translate(0,${height - margin.bottom})`).call(
@@ -50,7 +58,7 @@ function BarChart({ data }) {
               .append("text")
               .attr("x", -margin.left)
               .attr("y", 10)
-              .attr("fill", colorScale)
+              //.attr("fill", colorScale)
               .attr("text-anchor", "start")
               .text(data.yScale)
           );
@@ -64,7 +72,8 @@ function BarChart({ data }) {
         .data(data)
         .join("rect")
         .transition()
-        //.attr("fill", colorScale)
+        //.attr("fill", function(d,i){return colorScale1(i)})
+        .attr("fill", d => colorScale1(colorValue(d)))
         .attr("class", "bar")
         .attr("x", (d) => xScale(d.name))
         .attr("width", xScale.bandwidth())
