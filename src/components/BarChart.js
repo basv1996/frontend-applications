@@ -74,6 +74,7 @@ function BarChart({ data }) {
         .transition()
         //.attr("fill", function(d,i){return colorScale1(i)})
         .attr("fill", d => colorScale1(colorValue(d)))
+        .attr("title", (d) => d.name)
         .attr("class", "bar")
         .attr("x", (d) => xScale(d.name))
         .attr("width", xScale.bandwidth())
