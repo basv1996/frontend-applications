@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Frontend applications
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## App Interface
+![Interface van de app]()
 
-## Available Scripts
+### Link naar de app
+:globe_with_meridians: [Link naar live app]() 
 
-In the project directory, you can run:
 
-### `npm start`
+## Opdracht
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Maak een gegevens visualisatie (met behulp van de d3-library) op basis van een gegeven dataset (of API) waar gegevens kunnen worden verkend door middel van intercatie met de d3 functies `enter()`, `update()` en `exit()`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Table of Contents
+  * [Opdracht](#assessment)
+  * [📋 Concept](#---concept)
+  * [⚙️ Installatie](#---installation)
+  * [🗃 Data](#---data)
+  * [🏫 Opdracht](#---Opdracht)
+  * [ℹ️ Resources](#---resources)
+  * [🗺️ License](#----license)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 📋 Concept
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Als idee heb ik om gegevens op te halen uit een API en deze te renderen in een chart. De chart die ik heb gekozen is een bar chart. Binnen deze bar chart wordt er getoond welke biertjes het hoogste alcohol percentage hebben.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Installatie
+Om deze app te installeren kan je de repository clonen:
+```bash
+$ git clone https://github.com/basv1996/FrontendData.git
+```
 
-### `npm run eject`
+## 🗃 Data
+Welke data heb ike gebruikt?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Ik heb een API gebruikt die allemaal verschillende biertjes heeft. Van de data heb ik de naam en het alcohol percentage van het bier gepakt en deze in een bar chart gestopt. 
+![Ruwe dataset](https://github.com/basv1996/FrontendData/blob/master/wiki_img/Dataset_raw.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🏫 Opdracht
+<details>
+  <summary></strong> (Klik om te openen)</summary>
+Tijdens het vak Frontend data worden we beoordeld op de volgende punten:
 
-## Learn More
+- Toepassing van het onderwerp
+- Begrijpen van de materie
+- Kwaliteit
+- Proces
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+</details>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Rubric
 
-### Code Splitting
+[Rubric](https://github.com/basv1996/FrontendData/wiki/Rubric-Frontend-Data-21-22.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Credits
+-  [Tech Track @CMD](https://github.com/cmda-tt/course-21-22) 
+- [Robert S.](https://github.com/roberrrt-s) :nerd_face:
+- The support groep team 3 and other people joining team 3 :muscle:
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🗺️ License
+Author: [Bas Vugts](https://github.com/basv1996) , license by
+[MIT](https://github.com/basv1996/FrontendData/blob/master/LICENSE)      
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -1,20 +1,18 @@
 import { BeerProvider } from './providers/beerProvider'
-// import Name from './components/name'
+import { Provider } from './components/provider'
+import Filters from './components/filter'
 import './App.css'
-import Welcome from './components/welcome'
-// import Svg from './components/svg'
 import BarChart from './components/BarChart'
 import {dataBeer} from './data'
 
-
 function App() {
   return (
+    < Provider>
     <BeerProvider>
-      <Welcome />
+    < Filters />
       <BarChart data={dataBeer} />
-      {/* <Name />     */}
-      {/* <Svg /> */}
     </BeerProvider>
+    </Provider>
   );
 }
 

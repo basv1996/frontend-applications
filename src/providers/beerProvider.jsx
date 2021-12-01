@@ -11,7 +11,7 @@ export const BeerProvider = ({ children }) => {
       .then((data) => {
         setData(data)
         console.log("data: ", data)
-        console.log("data map: ", data.map(data => data.name) )
+        console.log("data map: ", data.map(data => data.abv) )
         console.log("data naam: ",data[0].name)
       })
     }, [])

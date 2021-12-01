@@ -1,8 +1,9 @@
 import useD3 from "../hooks/useD3";
-import { dataBeer } from "../data";
-import React from "react";
+// import { dataBeer } from "../data";
+import React, { useState, useEffect } from "react";
 import * as d3 from "d3";
 import { scaleLinear } from "d3";
+import { useData } from "./useData";
 
 function BarChart({ data }) {
     //als je een hook gebruikt moet deze altijd top-level worden aangemaakt 
@@ -10,6 +11,9 @@ function BarChart({ data }) {
 
     // const [var1, setVar1] = useState()
     // de eerste value in de array is de current state en de 2e value is de functie voor de geupdate state
+
+    const apiData = useData();
+    const [shownData, setShownData] = useState();
   const ref = useD3(
     (svg) => {
        
@@ -19,27 +23,24 @@ function BarChart({ data }) {
 
       const xScale = d3
         .scaleBand()
-        .domain(data.map((d) => d.name))
+        .domain(shownData.map((d) => d.name))
         .rangeRound([margin.left, width - margin.right])
         .padding(0.1);
 
       const yScale = d3
         .scaleLinear()
-        .domain([0, d3.max(data, (d) => d.abv)])
+        .domain([0, d3.max(shownData, (d) => d.abv)])
         .rangeRound([height - margin.bottom, margin.top]);
 
       
         const colorValue = d => d.abv
-        
-        //const colorScale1 = d3.scaleSequential(d3.interpolateRainbow).domain([0,10])
-        //const colorScale1 = d3.scaleSequential(d3.interpolateYlOrRd).domain([0,10])
-        const colorScale1 = d3.scaleSequential(d3.interpolateYlOrRd).domain([0, d3.max(data, colorValue)])
+        const colorScale1 = d3.scaleSequential(d3.interpolateYlOrRd).domain([0, d3.max(shownData, colorValue)])
 
       const xAxis = (g) =>
         g.attr("transform", `translate(0,${height - margin.bottom})`).call(
           d3
             .axisBottom(xScale)      
-            .tickValues(data.map((d) => d.name))
+            .tickValues(shownData.map((d) => d.name))
             .tickSizeOuter(0)    
         )
         .selectAll("text")
@@ -60,16 +61,18 @@ function BarChart({ data }) {
               .attr("y", 10)
               //.attr("fill", colorScale)
               .attr("text-anchor", "start")
-              .text(data.yScale)
+              .text(shownData.yScale)
           );
 
       svg.select(".x-axis").call(xAxis);
       svg.select(".y-axis").call(y1Axis);
 
+//svg.selcet all rect .remove 
+    
       svg
         .select(".plot-area")
         .selectAll(".bar")
-        .data(data)
+        .data(shownData)
         .join("rect")
         .transition()
         //.attr("fill", function(d,i){return colorScale1(i)})
@@ -80,12 +83,34 @@ function BarChart({ data }) {
         .attr("width", xScale.bandwidth())
         .attr("y", (d) => yScale(d.abv))
         .attr("height", (d) => yScale(0) - yScale(d.abv));
-    },
-    [data.length]
-  );
+    },[shownData]);
+    
+
+
+  
+  function handleInputChange(event) {
+    console.log(event.currentTarget.checked);
+    if (event.currentTarget.checked) {
+      setShownData(apiData.filter((d) => d.abv < 8));
+      console.log("above 8")
+    } else {
+      setShownData(apiData);
+      console.log("under 8 percent")
+    }
+  }
 
   return (
       <>
+      <label>
+        <input
+          type="checkbox"
+          name="beers"
+          value="1"
+          id="filter-beers-only"
+          onChange={handleInputChange}
+        />
+        Only show beers under 8% alcohol
+      </label>
     <svg
       ref={ref}
       style={{
