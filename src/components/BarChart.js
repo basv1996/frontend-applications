@@ -1,10 +1,13 @@
-import useD3 from "../hooks/useD3"
-import React, { useState, useEffect} from "react"
-import * as d3 from "d3"
-import { useData } from "./useData"
+// Een module kan slechts één standaard export hebben, maar meerdere benoemde exporten.
+
+import useD3 from "../hooks/useD3" // importeer de default import module useD3
+import React, { useState, useEffect} from "react" // importeer react met de functies useState en useEffect
+import * as d3 from "d3" // pak alles van d3 
+import { useData } from "./useData" // importeer een zelf genaamde import met de naam useData
 
 function BarChart({ data }) {
     //als je een hook gebruikt moet deze altijd top-level worden aangemaakt 
+    //Een hook mag je alleen gebruiken in een functie compnentn en niet in een class component.
     //hooks kunnen niet in if-statement/functies/loops of genest waar dan ook
 
     // const [shownData, setShownData] = useState()
@@ -37,7 +40,8 @@ function BarChart({ data }) {
 
       
         const colorValue = d => d.abv
-        const colorScale1 = d3.scaleSequential(d3.interpolateYlOrRd).domain([0, d3.max(shownData, colorValue)])
+        const colorScale1 = d3.scaleSequential(d3.interpolateYlOrRd)
+        .domain([0, d3.max(shownData, colorValue)])
 
       const xAxis = (g) =>
         g.attr("transform", `translate(0,${height - margin.bottom})`).call(
@@ -56,7 +60,8 @@ function BarChart({ data }) {
           .attr("transform", `translate(${margin.left},0)`)
           .call(d3.axisLeft(yScale).ticks(null, "s"))
           .call((g) => g.select(".domain").remove())
-          .call((g) =>
+          .call(
+            (g) =>
             g
               .append("text")
               .attr("x", -margin.left)
@@ -67,9 +72,7 @@ function BarChart({ data }) {
 
       svg.select(".x-axis").call(xAxis)
       svg.select(".y-axis").call(y1Axis)
-
-//svg.select all rect .remove 
-    
+  
       svg
         .select(".plot-area")
         .selectAll(".bar")
@@ -96,6 +99,9 @@ function BarChart({ data }) {
     }
   }
 
+  //Elke keer wanneer de applicatie gerenderd wordt zal de useEffect aangeroepen worden.
+  //useEffect gebruikt een 2e parameter, een array. 
+  //Alles wat in de array zit zijn values en als deze verandere zal de useEffect ook runnen. 
   useEffect(( ) => {
     setShownData(apiData)
   },[apiData])
