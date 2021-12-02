@@ -1,7 +1,7 @@
 # Frontend applications
 
 ## App Interface
-![Interface van de app]()
+![Interface van de app](https://github.com/basv1996/frontend-applications/blob/master/wiki_img/interface-Frontend-applications.png)
 
 ### Link naar de app
 :globe_with_meridians: [Link naar live app](https://frontend-applications-basv1996.vercel.app/) 

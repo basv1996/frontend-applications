@@ -77,6 +77,8 @@ function BarChart({ data }) {
         .join("rect")
         .attr("fill", d => colorScale1(colorValue(d)))
         .transition()
+        .duration(750)
+        .ease(d3.easeLinear)
         .attr("title", (d) => d.name)
         .attr("class", "bar")
         .attr("x", (d) => xScale(d.name))
