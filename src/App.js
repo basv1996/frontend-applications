@@ -2,13 +2,14 @@ import { BeerProvider } from './providers/beerProvider'
 import { Provider } from './components/provider'
 import './App.css'
 import BarChart from './components/BarChart'
-import {dataBeer} from './data'
+import { useData } from './components/useData'
+//import {dataBeer} from './data'
 
 function App() {
   return (
     <Provider>
     <BeerProvider>
-      <BarChart data={dataBeer} />
+      <BarChart data={useData} />
     </BeerProvider>
     </Provider>
   )

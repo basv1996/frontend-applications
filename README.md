@@ -57,7 +57,7 @@ Ik heb een API gebruikt die allemaal verschillende biertjes heeft. Van de data h
 ## 🏫 Opdracht
 <details>
   <summary></strong> (Klik om te openen)</summary>
-Tijdens het vak Frontend data worden we beoordeld op de volgende punten:
+Tijdens het vak Frontend applications worden we beoordeld op de volgende punten:
 
 - Toepassing van het onderwerp
 - Begrijpen van de materie
