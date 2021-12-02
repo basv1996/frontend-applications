@@ -10,9 +10,6 @@ export const BeerProvider = ({ children }) => {
       d3.json("https://api.punkapi.com/v2/beers?page=1&per_page=11")
       .then((data) => {
         setData(data)
-        console.log("data: ", data)
-        console.log("data map: ", data.map(data => data.abv) )
-        console.log("data naam: ",data[0].name)
       })
     }, [])
     return (
