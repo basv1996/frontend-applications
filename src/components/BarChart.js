@@ -100,7 +100,7 @@ function BarChart({ data }) {
 
   return (
       <>
-      <h1>Dit is mijn React applicatie</h1>
+      <h1>Filter biertjes met React en d3</h1>
       <label>
         <input
           type="checkbox"

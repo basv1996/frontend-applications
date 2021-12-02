@@ -4,7 +4,7 @@
 ![Interface van de app]()
 
 ### Link naar de app
-:globe_with_meridians: [Link naar live app]() 
+:globe_with_meridians: [Link naar live app](https://frontend-applications-basv1996.vercel.app/) 
 
 
 ## Opdracht
