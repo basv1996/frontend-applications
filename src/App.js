@@ -7,7 +7,7 @@ import {dataBeer} from './data'
 
 function App() {
   return (
-    < Provider>
+    <Provider>
     <BeerProvider>
     < Filters />
       <BarChart data={dataBeer} />
